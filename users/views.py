@@ -1,7 +1,7 @@
 from django.contrib.auth.views import LoginView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import logout, login
-from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.contrib.sites.shortcuts import get_current_site
@@ -12,8 +12,9 @@ from django.views.generic import UpdateView
 
 from .forms import RegisterUserForm, LoginUserForm, ChangeProfile
 from .token import account_activation_token
-from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class LoginUser(LoginView):
@@ -76,7 +77,7 @@ def success(request):
 
 class Change_profile(UpdateView):
     template_name = 'registration/change_profile.html'
-    model = User
     form_class = ChangeProfile
     success_url = '/'
-
+    model = User
+  

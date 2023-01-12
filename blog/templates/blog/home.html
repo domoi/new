@@ -3,6 +3,7 @@
 {% block title %} Главная {% endblock %}
 
 {% block content %}
+<!--display all posts start-->
     <div class="conteiner mt-4">
         <div class="container">
             <div class="row">
@@ -25,11 +26,26 @@
                 {% for item in page_obj %}
                     <div class="card mb-4">
                         <div class="card-header">
-                            Категория {{ item.category }}
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="row align-items-center">
+                                            <div class="col-8">
+                                                <strong> Категория: {{ item.category }}</strong> 
+                                            </div>
+                                            <div class="col"></div>
+
+                                            <div class="col">
+                                               {{ item.author }}  <img style="border-radius: 50%" width="50" height="50" src="{{ item.author.avatar.url }}" />                                 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                         </div>
                         <div class="card-body">
                             <div class="media">
-                                <img src="{{ item.photo.url }}" class="me-3 float-start" width="350" alt="">
+                                <img src="{{ item.photo.url }}" class="me-3 float-start" width="350" height="250" alt="">
+                                
                             </div>
                             <div class="media-body">
                                 <h5 class="card-title">{{ item.title }}</h5>
@@ -46,3 +62,4 @@
         </div>
     </div>
 {% endblock %}
+<!--display all posts finish-->

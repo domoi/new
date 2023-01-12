@@ -25,10 +25,21 @@
         .TextArea {
             resize: none;
         }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            boder: 0;
+        }
+        
+        table td {
+            padding: 0;
+            margin: 0;
+        }
 
     </style>
 </head>
 <body>
+<!--display navbar-->
 <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarText">
@@ -74,10 +85,11 @@
         </div>
     </div>
 </nav>
-
+<!--display navbar finish-->
 {% block content %}
 
 {% endblock content %}
+<!--display paginator start-->
 {% if page_obj.has_other_pages %}
     <div class="h-100 d-flex align-items-center justify-content-center" style="padding: 70px">
         <nav aria-label="...">
@@ -101,6 +113,8 @@
         </nav>
     </div>
 {% endif %}
+<!--display paginator finish-->
+
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

@@ -11,5 +11,5 @@ urlpatterns = [
     path('email/', email_confirm, name='email_confirm'),
     path('email_success/', success, name='success'),
     path('change_profile/<int:pk>/', Change_profile.as_view(), name='change_profile'),
-
+    path("", include("allauth.urls")), #most important
 ]
